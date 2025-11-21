@@ -1,0 +1,96 @@
+{
+    "layer": "top",
+    "height": 40,
+    "spacing": 4,
+    "position": "top",
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/notification"
+    ],
+
+    "clock": {
+        "format": "  {:%I:%M %p %a}",
+        "format-alt": "  {:%a %d %b}",
+        "tooltip": false,
+        "on-click-right": "gnome-calendar"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": " 󰍛  {usage}%",
+        "on-double-click": "kitty btop",
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "{icon}   {essid}",
+        "format-ethernet": "   Wired",
+        "format-disconnected": "󰤭",
+        "format-disabled": "󰤣",
+        "max-length": 10,
+        "interval": 10,
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}   {volume}",
+        "format-bluetooth": "󰂯  {volume}",
+        "format-muted": "   {volume}",
+        "scroll-step": 5.0,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-double-click": "pavucontrol",
+        "on-click-right": "blueman-manager",
+        "max-length": 100,
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "interval": 3,
+        "format-icons": ["󰁺", "󰁻", "󰁾", "󰂀", "󰂂"],
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-full": "󱟢",
+	"on-scroll-down": "brightnessctl -e4 -n2 set 5%+",
+	"on-scroll-up": "brightnessctl -e4 -n2 set 5%-"
+    },
+
+      "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='14pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+
+}
