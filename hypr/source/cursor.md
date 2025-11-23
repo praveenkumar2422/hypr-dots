@@ -11,4 +11,4 @@ Inherits = Bibata-Modern-Ice
 [Appearance]
 icon_theme=Bibata-Modern-Ice
 ```
--   write the above config to `~/.config/qt5ct/qt5ct.conf` and `~/.config/qt6ct/qt6ct.conf` files.
+-   write the above code to `~/.config/qt5ct/qt5ct.conf` and `~/.config/qt6ct/qt6ct.conf` files.
